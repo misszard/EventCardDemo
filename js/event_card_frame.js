@@ -13,6 +13,8 @@ var imageType = 1;
 var audioType = 2;
 var videoType = 3;
 
+var event_card_total = document.createElement("div");
+
 /*函数调用*/
 // onDisplay();
 
@@ -21,39 +23,23 @@ var videoType = 3;
  */
 function onDisplay() {
 	/**EventCard整体*/
+	event_card_total.className = "event_card_total";
+	document.getElementById("body").appendChild(event_card_total);
+	
 	var event_card = document.createElement("div");
-	event_card.id = "event_card";
-	event_card.style.display = "block";
-	event_card.style.margin = "0px auto";
-	event_card.style.marginTop = "50px";
-	event_card.style.width = "500px";
-	event_card.style.height = "320px";
-	event_card.style.position = "static";
-	event_card.style.zIndex = "1";
-	document.getElementById("body").appendChild(event_card);
+	event_card.className = "event_card";
+	event_card_total.appendChild(event_card);
 
 	/**EventCard title部分*/
 	var top_card = document.createElement("div");
-	top_card.id = "top_card";
-	top_card.style.width = "500px";
-	top_card.style.height = "64px";
-	top_card.style.textAlign = "center";
-	top_card.style.fontSize = "36px";
-	top_card.style.lineHeight = "64px";
-	top_card.style.backgroundColor = "rgba(73, 160, 154, 0.223529)";
-	top_card.style.overflow = "hidden";
+	top_card.className = "top_card";
 	event_card.appendChild(top_card);
 
 	/**EventCard 取景器部分*/
 	var bottom_card = document.createElement("div");
-	bottom_card.id = "bottom_card";
-	bottom_card.style.width = "500px";
-	bottom_card.style.height = "256px";
-	bottom_card.style.verticalAlign = "middle";
-	bottom_card.style.overflow = "hidden";
-	bottom_card.style.position = "relative";
+	bottom_card.className = "bottom_card";
 	event_card.appendChild(bottom_card);
-	this.onAssemble(1);
+	this.onAssemble(0);
 	this.expanColumn();
 }
 
@@ -63,36 +49,23 @@ function onDisplay() {
 function expanColumn() {
 	/*拓展功能栏*/
 	var expan_div = document.createElement("div");
-	expan_div.id = "expan_div";
-	expan_div.style.width = "110px";
-	expan_div.style.height = "375px";
-	expan_div.style.backgroundColor = "#F8F8FF";
-	expan_div.style.marginLeft = "20px";
-	expan_div.style.position = "relative";
-	expan_div.style.zIndex = "2";
-	document.getElementById("event_card").appendChild(expan_div);
+	expan_div.className = "expan_div";
+	event_card_total.appendChild(expan_div);
 
 	/*功能 1*/
 	var expan_fun1 = document.createElement("div");
-	expan_fun1.id = "expan_fun1";
-	expan_fun1.style.width = "110px";
-	expan_fun1.style.height = "125px";
+	expan_fun1.className = "expan_fun";
 	expan_div.appendChild(expan_fun1);
 
 	/*功能 2*/
 	var expan_fun2 = document.createElement("div");
-	expan_fun2.id = "expan_fun2";
-	expan_fun2.style.width = "110px";
-	expan_fun2.style.height = "125px";
-	expan_fun2.style.border = "1px #EEE9E9 solid";
-	expan_fun2.style.backgroundColor = "#F2F2F2";
+	expan_fun2.className = "expan_fun";
+	expan_fun2.style.backgroundColor = "#666665";
 	expan_div.appendChild(expan_fun2);
 
 	/*功能 3*/
 	var expan_fun3 = document.createElement("div");
-	expan_fun3.id = "expan_fun3";
-	expan_fun3.style.width = "110px";
-	expan_fun3.style.height = "125px";
+	expan_fun3.className = "expan_fun";
 	expan_div.appendChild(expan_fun3);
 }
 
@@ -100,10 +73,10 @@ function expanColumn() {
  * 生成EventCard(组装)
  */
 function onAssemble(id) {
-	document.getElementById("top_card").innerHTML = sourceArray[id][0];
+	document.getElementsByClassName("top_card")[0].innerHTML = sourceArray[id][0];
 
 	var img = document.createElement("img");
-	document.getElementById("bottom_card").appendChild(img);
+	document.getElementsByClassName("bottom_card")[0].appendChild(img);
 	img.setAttribute("src", sourceArray[id][1]);
 
 	var img_width = this.getOriginalSize(sourceArray[id][1])[0];
