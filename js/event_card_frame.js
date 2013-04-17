@@ -3,17 +3,7 @@
 /*模拟数据资源*/
 var sourceArray = new Array(["Dangerous", "source/Michael_Jackson_Dangerous_2.jpg", "source/Dangerous.mp4"], ["Cloud Atlas", "source/cloud-atlas-01.jpg", "source/Dangerous.mp4"]);
 
-/*资源文件类型*/
-var imageArray = ["jpg", "png", "gif"];
-var audioArray = ["mp3", "wav", "ra"];
-var videoArray = ["mp4", "avi", "rmvb", "flv"];
-
-/*定义类型标识*/
-var imageType = 1;
-var audioType = 2;
-var videoType = 3;
-
-var event_card_total = document.createElement("div");
+var event_card;
 
 /*函数调用*/
 // onDisplay();
@@ -23,12 +13,12 @@ var event_card_total = document.createElement("div");
  */
 function onDisplay() {
 	/**EventCard整体*/
-	event_card_total.className = "event_card_total";
-	document.getElementById("body").appendChild(event_card_total);
-	
-	var event_card = document.createElement("div");
+	event_card = document.createElement("div");
 	event_card.className = "event_card";
-	event_card_total.appendChild(event_card);
+	document.getElementsByClassName("main")[0].appendChild(event_card);
+
+	// document.activeElement.className = "event_card";
+	console.log("document.activeElement.className = " + document.activeElement.className);
 
 	/**EventCard title部分*/
 	var top_card = document.createElement("div");
@@ -39,34 +29,112 @@ function onDisplay() {
 	var bottom_card = document.createElement("div");
 	bottom_card.className = "bottom_card";
 	event_card.appendChild(bottom_card);
-	this.onAssemble(0);
-	this.expanColumn();
-}
+	this.onAssemble(1);
 
-/**
- * 拓展功能栏
- */
-function expanColumn() {
 	/*拓展功能栏*/
 	var expan_div = document.createElement("div");
 	expan_div.className = "expan_div";
-	event_card_total.appendChild(expan_div);
+	// event_card.appendChild(expan_div);
+	/**放在第一个子节点之前才有效果*/
+	event_card.insertBefore(expan_div, event_card.childNodes[0]);
 
 	/*功能 1*/
 	var expan_fun1 = document.createElement("div");
 	expan_fun1.className = "expan_fun";
+	expan_fun1.name = "expan_fun1";
 	expan_div.appendChild(expan_fun1);
 
 	/*功能 2*/
 	var expan_fun2 = document.createElement("div");
 	expan_fun2.className = "expan_fun";
-	expan_fun2.style.backgroundColor = "#666665";
+	expan_fun2.name = "expan_fun2";
+	// expan_fun2.style.backgroundColor = "#666665";
 	expan_div.appendChild(expan_fun2);
 
 	/*功能 3*/
 	var expan_fun3 = document.createElement("div");
 	expan_fun3.className = "expan_fun";
+	expan_fun3.name = "expan_fun3";
 	expan_div.appendChild(expan_fun3);
+
+	/*根据b的值,呼出或退出拓展功能栏*/
+	/*
+	 var a = 0;
+
+	 this.event_card.onclick = function show() {
+	 console.log("onclick");
+	 var b = 0;
+	 if(a) {
+	 b = 1;
+	 a = 0;
+	 document.activeElement.name = "expan_fun2";
+	 getFocus(expan_fun2);
+	 } else {
+	 b = 0;
+	 a = 1;
+	 }
+	 display_expanColumn(b);
+	 }
+
+	 this.event_card.onkeydown = function KeyDownDown() {
+	 alert("onkeydown");
+	 if(window.event.keyCode == 39) {
+	 document.activeElement.name = "expan_fun1";
+	 getFocus(expan_fun1);
+	 a = 1;
+	 }
+	 if(window.event.keyCode == 37) {
+	 document.activeElement.className = "event_card";
+	 a = 0;
+	 }
+	 display_expanColumn(a);
+	 }
+	 */
+
+}
+
+/**
+ * 呼出及退出拓展功能栏
+ */
+function display_expanColumn(b) {
+	var expan_div = document.getElementsByClassName("expan_div")[0];
+	if(b) {
+		console.log("display_expanColumn	true");
+		expan_div.style.display = "block";
+	} else {
+		console.log("display_expanColumn	false");
+		expan_div.style.display = "none";
+	}
+}
+
+/**
+ * 拓展功能栏获取焦点的处理
+ */
+function getFocus(a) {
+	console.log("document.activeElement.className = " + document.activeElement.className);
+	/*注意是"=="而不是"=" */
+	var b = (document.activeElement.name == a.name);
+	// alert(document.activeElement.name + ", " + a.name + ", " + "b = " + b);
+	if(b) {
+		a.style.backgroundColor = "#666665";
+	}
+}
+
+/**
+ * 响应键盘方向右键：呼出拓展功能栏
+ * 响应键盘方向左键：退出拓展功能栏
+ */
+function keydown() {
+	if(window.event.keyCode == 39) {
+		/* 呼出拓展功能栏*/
+		console.log("——>");
+		display_expanColumn(1);
+	}
+	if(window.event.keyCode == 37) {
+		/* 退出拓展功能栏*/
+		console.log("<——");
+		display_expanColumn(0);
+	}
 }
 
 /**
@@ -120,27 +188,6 @@ function set_img_center(image, width, height) {
 	var height_offset = (height - 256) / 2;
 	image.style.top = "-" + height_offset + "px";
 	image.style.left = "-" + width_offset + "px";
-}
-
-/**
- * 视频的跳转
- */
-function video_play() {
-	// window.location="video.html";
-	var event_card = document.getElementById("EventCard");
-	var video_div = document.getElementById("video");
-	var my_video = document.getElementById("myVideo");
-
-	// var card_is_display = (card.style.display == '');
-	// var video_is_display = (video.style.display == '');
-
-	event_card.style.display = "none";
-	video_div.style.display = "block";
-	console.log("next");
-	if(my_video.paused) {
-		console.log("here");
-		my_video.play();
-	}
 }
 
 /**
