@@ -4,14 +4,19 @@
 		<meta charset="utf-8" />
 		<title>EventCard Demo</title>
 		<link rel="stylesheet" href="css/style.css" />
-		<script type="text/javascript" src="js/event_card_frame.js"></script>
+
 	</head>
-	<body class="main" onload="onDisplay();" onkeydown="keydown();">
-		<!-- 	<div class="event_card">
-				<div class="expan_div"></div>
-				<div class="top_card"></div>
-				<div class="bottom_card"></div>
-				
-			</div> -->
+	<body class="main"  onkeydown="keydown();">
+		<div id="event_card1" class="event_card" >
+			<div class="expan_div" >
+				<div class="expan_fun" name="expan_fun1"></div>
+				<div class="expan_fun" name="expan_fun2"></div>
+				<div class="expan_fun" name="expan_fun3"></div>
+			</div>
+			<div class="top_card"></div>
+			<div class="bottom_card"></div>
+		</div>
 	</body>
+	<script type="text/javascript" src="js/event_card_frame.js"></script>
+	<script type="text/javascript" src="js/EventCardDemo.js"></script>
 </html>

@@ -11,17 +11,17 @@ body {
 
 .event_card {
 	margin: 0px auto;
-	margin-top: 30px;
+	margin-top: 60px;
 	position: relative;
 	width: 500px;
 	height: 320px;
-	border: 1px rgba(73, 160, 154, 0.223529) solid;
+	/*	border: 1px rgba(73, 160, 154, 0.223529) solid;*/
+
 }
 
 .expan_div {
 	width: 110px;
 	height: 375px;
-	background-color: #a29191;
 	margin-top: -30px;
 	margin-left: 20px;
 	z-index: 20;
@@ -35,7 +35,8 @@ body {
 	text-align: center;
 	font-size: 36px;
 	line-height: 64px;
-	background-color: rgba(73, 160, 154, 0.223529);
+	/*	background-color: rgba(73, 160, 154, 0.223529);*/
+	background-color: #FFFFFF;
 	overflow: hidden;
 }
 
@@ -49,4 +50,12 @@ body {
 .expan_fun {
 	width: 110px;
 	height: 125px;
+	background-color: #a29191;
 }
+
+.expan_fun_onfocus {
+	width: 110px;
+	height: 125px;
+	background-color: #666665;
+}
+
