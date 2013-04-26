@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Demo</title>
+		
+		<link rel="stylesheet" href="css/style.css" />
+		<script type="text/javascript" src="Scripts/jquery.js"></script>
+		<script type="text/javascript" src="Scripts/jquery.tmpl.js"></script>
+		<script type="text/javascript" src="Scripts/jquery.quickflip.min.js"></script>
+		<script type="text/javascript" src="Scripts/jquery.quickflip.source.js"></script>
+		<script type="text/javascript" src="Scripts/Demo.js"></script>
+		
+	</head>
+
+	<body >
+		
+		<script type="text/template" id="item-template">
+		    <div id="event_card1" class="event_card">
+				<div class="expan_div">
+					<div class="quickFlip">
+						<div class="expan_fun blackPanel" name="expan_fun1">
+							<a href="#" class="quickFlipCta"><img id="base1" src="${imageUrl1}" /></a>
+						</div>
+						<div class="expan_fun redPanel" name="expan_fun2">
+							<a href="#" class="quickFlipCta"><img id="base2" src="${imageUrl2}" /></a>
+						</div>
+					</div>
+					
+					<div class="quickFlip">
+						<div class="expan_fun blackPanel" name="expan_fun1">
+							<a href="#" class="quickFlipCta"><img id="base3" src="${imageUrl3}" /></a>
+						</div>
+						<div class="expan_fun redPanel" name="expan_fun2">
+							<a href="#" class="quickFlipCta"><img id="base4" src="${imageUrl4}" /></a>
+						</div>
+					</div>
+					<div class="quickFlip">
+						<div class="expan_fun blackPanel" name="expan_fun1">
+							<a href="#" class="quickFlipCta"><img id="base5" src="${imageUrl5}" /></a>
+						</div>
+						<div class="expan_fun redPanel" name="expan_fun2">
+							<a href="#" class="quickFlipCta"><img id="base6" src="${imageUrl6}" /></a>
+						</div>
+					</div>
+				</div>
+				<div class="top_card">${title}</div>
+				<div class="bottom_card"><img id="backgroundImg" src="${imageUrl}" /></div>
+			</div>
+		</script>
+		
+	</body>
+</html>

@@ -15,7 +15,7 @@ body {
 	position: relative;
 	width: 500px;
 	height: 320px;
-	/*	border: 1px rgba(73, 160, 154, 0.223529) solid;*/
+	border: 5px gray solid;
 
 }
 
@@ -59,3 +59,20 @@ body {
 	background-color: #666665;
 }
 
+/*-----------zard------------*/
+.redPanel, .blackPanel {
+    text-align: center;
+}
+
+.quickFlip{
+    height: 129px;
+    width: 114px;
+}
+
+.focusImg {
+	border:2px solid yellow;
+}
+
+.focusEventCard {
+	border:5px solid yellow;
+}
