@@ -15,14 +15,13 @@ body {
 	position: relative;
 	width: 500px;
 	height: 320px;
-	border: 5px gray solid;
-
+	border: 1px gray solid;
 }
 
 .expan_div {
-	width: 110px;
-	height: 375px;
-	margin-top: -30px;
+	width: 120px;
+	height: 377px;
+	margin-top: -29px;
 	margin-left: 20px;
 	z-index: 20;
 	position: absolute;
@@ -50,7 +49,6 @@ body {
 .expan_fun {
 	width: 110px;
 	height: 125px;
-	background-color: #a29191;
 }
 
 .expan_fun_onfocus {
@@ -61,18 +59,24 @@ body {
 
 /*-----------zard------------*/
 .redPanel, .blackPanel {
-    text-align: center;
+	text-align: center;
 }
 
-.quickFlip{
-    height: 129px;
-    width: 114px;
+.quickFlip {
+	height: 125px;
+	width: 110px;
 }
 
 .focusImg {
-	border:2px solid yellow;
+	background-image: url(Images/expan_fun.png);
 }
 
-.focusEventCard {
-	border:5px solid yellow;
+.quickFlip img {
+	background-image: url(Images/expan_fun_p.png);
 }
+
+/*黄色边框效果
+ .focusEventCard {
+ border:5px solid yellow;
+ }*/
+
